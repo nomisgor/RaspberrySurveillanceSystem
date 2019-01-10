@@ -4,6 +4,7 @@ import DoorManager as dm
 import LedManager as lm
 import StopButtonManager as sbm
 import time
+import Camera as cam
 
 class AlarmManager():
 
@@ -16,6 +17,7 @@ class AlarmManager():
 		else :
 			print("problem durring mail sending");
 		"""
+		self.camera = cam.Camera()
 
 		while True :
 			self.security = 0
@@ -56,6 +58,7 @@ class AlarmManager():
 	#appele quand le contact de porte s'ouvre
 	def openDoor(self): 
 		print("Porte ouverte !")
+		self.camera.takePictures(1)
 
 	#appele quand on veut shutdown l'alarme
 	def stopThread(self, thread): 
